@@ -1,3 +1,19 @@
+\#*
+*~
+.#*
+*.sassc
+*.DS_Store
+.sass-cache
+coverage
+Gemfile.lock
+.idea
+.project
+nbproject
+.ruby-gemset
+pkg
+*.swp
+spec/dummy
+
 *.rbc
 capybara-*.html
 .rspec
@@ -17,14 +33,23 @@ config/initializers/secret_token.rb
 config/secrets.yml
 
 ## Environment normalization:
-/.bundle
+/.bundle/
 /vendor/bundle
+/lib/bundler/man/
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+.ruby-version
+/test
+/config/*.yml
+*.log
+/public/test_files
+/public/system/*
+/public/*.json
+.byebug_history
 
 # if using bower-rails ignore default bower_components path bower.json files
 /vendor/assets/bower_components
@@ -33,3 +58,16 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+*.gem
+/.config
+/InstalledFiles
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/*
+
+## Specific to RubyMotion:
+.dat*
+.repl_history
+build/
