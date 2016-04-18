@@ -9,6 +9,5 @@ module Spree
     validates :activity,
               :session_id,
               :target, presence: true
-
   end
 end

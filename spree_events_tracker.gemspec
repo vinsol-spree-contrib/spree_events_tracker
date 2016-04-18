@@ -17,16 +17,21 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 3.0.0'
+  spree_version = '~> 3.0.0'
 
+  s.add_dependency 'spree_core', spree_version
   s.add_development_dependency 'capybara', '~> 2.6'
-  s.add_development_dependency 'coffee-rails'
-  s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'coffee-rails', '~> 4.0.0'
+  s.add_development_dependency 'database_cleaner', '~> 1.5.0'
   s.add_development_dependency 'factory_girl', '~> 4.5'
-  s.add_development_dependency 'ffaker'
+  s.add_development_dependency 'ffaker', '~> 1.32.0'
+  s.add_development_dependency 'rspec-activemodel-mocks', '~> 1.0.3'
   s.add_development_dependency 'rspec-rails', '~> 3.4'
   s.add_development_dependency 'sass-rails', '~> 5.0.0'
-  s.add_development_dependency 'selenium-webdriver'
-  s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'selenium-webdriver', '~> 2.53.0'
+  s.add_development_dependency 'shoulda-matchers', '~> 2.6.2'
+  s.add_development_dependency 'simplecov', '~> 0.11.0'
+  s.add_development_dependency 'sqlite3', '~> 1.3.0'
+  s.add_development_dependency 'spree_backend', spree_version
+  s.add_development_dependency 'spree_frontend', spree_version
 end

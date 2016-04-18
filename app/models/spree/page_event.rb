@@ -9,8 +9,5 @@ module Spree
 
     validates :activity,
               :session_id, presence: true
-
-    scope :product_pages, -> { where(target_type: Spree::Product) }
-    scope :activity,      -> (type) { where(activity: type) }
   end
 end
