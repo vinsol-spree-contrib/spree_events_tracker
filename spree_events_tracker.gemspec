@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.description = 'Add (optional) gem description here'
   s.required_ruby_version = '>= 2.1.0'
 
-  s.author    = 'You'
-  s.email     = 'you@example.com'
+  s.author    = ['Nimish Gupta', 'Tanmay Sinha']
+  s.email     = ['nimish.gupta@vinsol.com', 'tanmay@vinsol.com']
   # s.homepage  = 'http://www.spreecommerce.com'
   s.license = 'BSD-3'
 
