@@ -1,17 +1,18 @@
 SpreeEventsTracker
 ==================
 
-Introduction goes here.
+Spree Events Tracker is a spree extension used to track various user activities. This extension can be used to track
+1) Keywords searched by User
+2) Products detail page and other pages visited by User
+3) Product added/removed/updated to cart
+4) Checkout flow during completion of an order
 
 ## Installation
 
 1. Add this extension to your Gemfile with this line:
   ```ruby
-  gem 'spree_events_tracker', github: '[your-github-handle]/spree_events_tracker', branch: 'X-X-stable'
+  gem 'spree_events_tracker', github: 'vinsol-spree-contrib/spree_events_tracker', branch: '3-1-stable'
   ```
-
-  The `branch` option is important: it must match the version of Spree you're using.
-  For example, use `3-1-stable` if you're using Spree `3-1-stable` or any `3.1.x` version.
 
 2. Install the gem using Bundler:
   ```ruby
@@ -33,21 +34,12 @@ First bundle your dependencies, then run `rake`. `rake` will default to building
 
 ```shell
 bundle
-bundle exec rake
+bundle exec rspec spec
 ```
 
-When testing your applications integration with this extension you may use it's factories.
-Simply add this require statement to your spec_helper:
+Credits
+-------
 
-```ruby
-require 'spree_events_tracker/factories'
-```
+[![vinsol.com: Ruby on Rails, iOS and Android developers](http://vinsol.com/vin_logo.png "Ruby on Rails, iOS and Android developers")](http://vinsol.com)
 
-
-## Contributing
-
-If you'd like to contribute, please take a look at the
-[instructions](CONTRIBUTING.md) for installing dependencies and crafting a good
-pull request.
-
-Copyright (c) 2016 [name of extension creator], released under the New BSD License
+Copyright (c) 2016 [vinsol.com](http://vinsol.com "Ruby on Rails, iOS and Android developers"), released under the New MIT License
