@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.1.0'
 
   s.author    = ['Nimish Gupta', 'Tanmay Sinha']
-  s.email     = ['nimish.gupta@vinsol.com', 'tanmay@vinsol.com']
+  s.email     = 'info@vinsol.com'
   # s.homepage  = 'http://www.spreecommerce.com'
   s.license = 'BSD-3'
 
