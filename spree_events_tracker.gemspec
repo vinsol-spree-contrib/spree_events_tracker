@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.description = 'Add (optional) gem description here'
   s.required_ruby_version = '>= 2.1.0'
 
-  s.author    = 'Vinsol'
+  s.author    = ['Tanmay Sinha', 'Nimish Gupta']
   s.email     = 'info@vinsol.com'
   # s.homepage  = 'http://www.spreecommerce.com'
   s.license = 'BSD-3'
