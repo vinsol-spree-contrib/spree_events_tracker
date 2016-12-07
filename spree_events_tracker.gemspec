@@ -2,13 +2,13 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_events_tracker'
-  s.version     = '3.1.0.rc1'
+  s.version     = '3.0.0'
   s.summary     = 'Add gem summary here'
   s.description = 'Add (optional) gem description here'
   s.required_ruby_version = '>= 2.1.0'
 
-  s.author    = 'You'
-  s.email     = 'you@example.com'
+  s.author    = 'Vinsol'
+  s.email     = 'info@vinsol.com'
   # s.homepage  = 'http://www.spreecommerce.com'
   s.license = 'BSD-3'
 
