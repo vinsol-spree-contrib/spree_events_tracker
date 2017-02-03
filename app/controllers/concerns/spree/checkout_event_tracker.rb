@@ -13,7 +13,7 @@ module Spree
     end
 
     def next_state
-      @next_state ||= checkout_state(request.url)
+      @next_state ||= checkout_state(request.path)
     end
 
     def previous_state
