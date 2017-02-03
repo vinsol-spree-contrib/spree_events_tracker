@@ -24,7 +24,7 @@ describe Spree::CheckoutController do
   describe '#edit' do
 
     def send_request(state)
-      get :edit, state: state
+      get :edit, params: { state: state }
     end
 
     before do
@@ -82,7 +82,7 @@ describe Spree::CheckoutController do
   describe '#update' do
 
     def send_request
-      patch :update, state: order.state
+      patch :update, params: { state: order.state }
     end
 
     before do

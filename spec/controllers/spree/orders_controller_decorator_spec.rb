@@ -19,7 +19,7 @@ describe Spree::OrdersController do
   describe '#edit' do
 
     def send_request
-      get :edit, id: order.number
+      get :edit, params: { id: order.number }
     end
 
     describe 'when return to cart' do

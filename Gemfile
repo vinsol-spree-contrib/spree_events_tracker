@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'spree', github: 'spree/spree', branch: 'master'
+gem 'spree', github: 'spree/spree', branch: '3-2-stable'
+
+gem 'byebug'
 
 gemspec
