@@ -1,5 +1,6 @@
 # Run Coverage report
 require 'simplecov'
+require 'rails-controller-testing'
 SimpleCov.start do
   add_filter 'spec/dummy'
   add_group 'Controllers', 'app/controllers'
@@ -92,9 +93,14 @@ RSpec.configure do |config|
 
   config.fail_fast = ENV['FAIL_FAST'] || false
   config.order = "random"
-  config.include Spree::TestingSupport::ControllerRequests, type: :controller
   config.infer_spec_type_from_file_location!
 
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+
+  [:controller, :view, :request].each do |type|
+    config.include ::Rails::Controller::Testing::TestProcess, type: type
+    config.include ::Rails::Controller::Testing::TemplateAssertions, type: type
+    config.include ::Rails::Controller::Testing::Integration, type: type
+  end
 end
