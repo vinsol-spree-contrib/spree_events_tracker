@@ -1,4 +1,4 @@
-class CreateSpreeCartEvents < ActiveRecord::Migration
+class CreateSpreeCartEvents < SpreeExtension::Migration[4.2]
   def change
     create_table :spree_cart_events do |t|
       t.belongs_to :actor, polymorphic: true, index: true
