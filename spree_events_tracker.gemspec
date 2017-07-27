@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version     = '3.2.1'
   s.summary     = 'Spree Events Tracker is a spree extension used to track various user activities'
   s.description = 'Track keywords search, checkout events, add to cart, remove from cart and other events.'
-  s.required_ruby_version = '>= 2.1.0'
+  s.required_ruby_version = '>= 2.2.7'
 
   s.author    = ['Nimish Gupta', 'Tanmay Sinha', 'Nimish Mehta', "+ Vinsol Team"]
   s.email     = 'info@vinsol.com'
