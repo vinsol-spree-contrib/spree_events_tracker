@@ -10,10 +10,10 @@ Gem::Specification.new do |s|
   s.author    = ['Nimish Gupta', 'Tanmay Sinha', 'Nimish Mehta', "+ Vinsol Team"]
   s.email     = 'info@vinsol.com'
   s.homepage  = 'http://vinsol.com'
-  s.license = 'BSD-3'
+  s.license   = 'BSD-3'
 
-  s.files       = `git ls-files`.split("\n")
-  s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.files        = `git ls-files`.split("\n")
+  s.test_files   = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
@@ -21,19 +21,20 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core', spree_version
   s.add_dependency 'spree_extension', '~> 0.0.5'
-  s.add_development_dependency 'capybara', '~> 2.6'
-  s.add_development_dependency 'coffee-rails', '~> 4.2'
-  s.add_development_dependency 'database_cleaner', '~> 1.5.0'
-  s.add_development_dependency 'factory_girl', '~> 4.5'
-  s.add_development_dependency 'ffaker', '~> 2.2.0'
-  s.add_development_dependency 'rails-controller-testing'
-  s.add_development_dependency 'rspec-activemodel-mocks', '~> 1.0.3'
-  s.add_development_dependency 'rspec-rails', '~> 3.4'
-  s.add_development_dependency 'sass-rails', '~> 5.0.0'
-  s.add_development_dependency 'selenium-webdriver', '~> 2.53.0'
-  s.add_development_dependency 'shoulda-matchers', '~> 3.1.1'
-  s.add_development_dependency 'simplecov', '~> 0.13.0'
-  s.add_development_dependency 'sqlite3', '~> 1.3.0'
-  s.add_development_dependency 'spree_backend', spree_version
+
+  s.add_development_dependency 'capybara',                 '~> 2.6'
+  s.add_development_dependency 'coffee-rails',             '~> 4.2'
+  s.add_development_dependency 'database_cleaner',         '~> 1.5'
+  s.add_development_dependency 'factory_girl',             '~> 4.5'
+  s.add_development_dependency 'ffaker',                   '~> 2.2.0'
+  s.add_development_dependency 'rails-controller-testing', '~> 1.0.2'
+  s.add_development_dependency 'rspec-activemodel-mocks',  '~> 1.0.3'
+  s.add_development_dependency 'rspec-rails',              '~> 3.4'
+  s.add_development_dependency 'sass-rails',               '~> 5.0.0'
+  s.add_development_dependency 'selenium-webdriver',       '~> 2.53.0'
+  s.add_development_dependency 'shoulda-matchers',         '~> 3.1.1'
+  s.add_development_dependency 'simplecov',                '~> 0.13.0'
+  s.add_development_dependency 'sqlite3',                  '~> 1.3.0'
+  s.add_development_dependency 'spree_backend',  spree_version
   s.add_development_dependency 'spree_frontend', spree_version
 end
