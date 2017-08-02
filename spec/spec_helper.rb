@@ -30,8 +30,8 @@ RSpec.configure do |config|
   config.include Spree::TestingSupport::UrlHelpers
   config.include Spree::TestingSupport::ControllerRequests, type: :controller
 
-  # config.include(Shoulda::Matchers::ActiveModel, type: :model)
-  # config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 
   config.mock_with :rspec
   config.color = true
@@ -41,4 +41,5 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mock|
     mock.syntax = [:should, :expect]
   end
+
 end
