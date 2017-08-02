@@ -71,3 +71,5 @@ bower.json
 .dat*
 .repl_history
 build/
+.ruby-gemset
+gemfiles/*.gemfile.lock
