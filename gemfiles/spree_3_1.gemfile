@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "spree", github: "spree/spree", branch: "3-1-stable"
-gem "byebug"
+gem "spree", "~> 3.1.0"
+gem "byebug", "~> 9.0.6"
 
 gemspec path: "../"
