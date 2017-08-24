@@ -3,23 +3,24 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_events_tracker'
   s.version     = '3.1.0'
-  s.summary     = 'Add gem summary here'
-  s.description = 'Add (optional) gem description here'
+  s.summary     = 'Spree Events Tracker is a spree extension used to track various user activities'
+  s.description = 'Track keywords search, checkout events, add to cart, remove from cart and other events.'
   s.required_ruby_version = '>= 2.1.0'
 
-  s.author    = ['Tanmay Sinha', 'Nimish Gupta']
+  s.author    = ['Nimish Gupta', 'Tanmay Sinha', 'Nimish Mehta', "+ Vinsol Team"]
   s.email     = 'info@vinsol.com'
-  # s.homepage  = 'http://www.spreecommerce.com'
-  s.license = 'BSD-3'
+  s.homepage  = 'http://vinsol.com'
+  s.license   = 'BSD-3'
 
-  # s.files       = `git ls-files`.split("\n")
-  # s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.files       = `git ls-files`.split("\n")
+  s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
   spree_version = '~> 3.1.0'
 
   s.add_dependency 'spree_core', spree_version
+  s.add_development_dependency 'appraisal'
   s.add_development_dependency 'capybara', '~> 2.6'
   s.add_development_dependency 'coffee-rails', '~> 4.0.0'
   s.add_development_dependency 'database_cleaner', '~> 1.5.0'
