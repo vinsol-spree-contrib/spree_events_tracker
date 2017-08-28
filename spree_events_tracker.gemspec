@@ -10,16 +10,18 @@ Gem::Specification.new do |s|
   s.author    = ['Nimish Gupta', 'Tanmay Sinha', 'Nimish Mehta', "+ Vinsol Team"]
   s.email     = 'info@vinsol.com'
   s.homepage  = 'http://vinsol.com'
-  s.license = 'BSD-3'
+  s.license   = 'BSD-3'
 
-  s.files       = `git ls-files`.split("\n")
-  s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.files        = `git ls-files`.split("\n")
+  s.test_files   = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
   spree_version = '~> 3.2.0'
+  s.add_dependency 'spree_extension', '~> 0.0.5'
 
   s.add_dependency 'spree_core', spree_version
+  s.add_development_dependency 'appraisal'
   s.add_development_dependency 'capybara', '~> 2.6'
   s.add_development_dependency 'coffee-rails', '~> 4.2'
   s.add_development_dependency 'database_cleaner', '~> 1.5.0'
