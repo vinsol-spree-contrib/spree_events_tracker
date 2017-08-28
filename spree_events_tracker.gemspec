@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_events_tracker'
-  s.version     = '3.2.2'
+  s.version     = '3.3.0'
   s.summary     = 'Spree Events Tracker is a spree extension used to track various user activities'
   s.description = 'Track keywords search, checkout events, add to cart, remove from cart and other events.'
   s.required_ruby_version = '>= 2.1.0'
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  spree_version = '~> 3.2.0'
+  spree_version = '~> 3.3.0'
   s.add_dependency 'spree_extension', '~> 0.0.5'
 
   s.add_dependency 'spree_core', spree_version
