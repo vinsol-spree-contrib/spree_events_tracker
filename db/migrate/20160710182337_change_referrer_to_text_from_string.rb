@@ -1,4 +1,4 @@
-class ChangeReferrerToTextFromString < ActiveRecord::Migration
+class ChangeReferrerToTextFromString < SpreeExtension::Migration[4.2]
   def up
     change_column :spree_cart_events, :referrer, :text
     change_column :spree_page_events, :referrer, :text

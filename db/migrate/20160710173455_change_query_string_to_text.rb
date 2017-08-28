@@ -1,4 +1,4 @@
-class ChangeQueryStringToText < ActiveRecord::Migration
+class ChangeQueryStringToText < SpreeExtension::Migration[4.2]
   def up
     change_column :spree_page_events, :query_string, :text
   end
