@@ -12,13 +12,13 @@ Installation
 
 1. Add this extension to your Gemfile:
 
-  #### Spree >= 3.3
+  #### Spree >= 3.2
 
   ```ruby
   gem 'spree_events_tracker', github: 'vinsol-spree-contrib/spree_events_tracker', branch: 'master'
   ```
 
-  #### Spree < 3.3
+  #### Spree < 3.2
 
   ```ruby
   gem 'spree_events_tracker', github: 'vinsol-spree-contrib/spree_events_tracker', branch: 'X-X-stable'
