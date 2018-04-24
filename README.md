@@ -7,6 +7,20 @@ Spree Events Tracker is a spree extension used to track various user activities.
   3. Product added/removed/updated to cart
   4. Checkout flow during completion of an order
 
+Demo
+----
+Try Spree Events Tracker for Spree master with direct deployment on Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-events-tracker-master)
+
+Try Spree Events Tracker for Spree 3-4 with direct deployment on Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-events-tracker-3-4)
+
+Try Spree Events Tracker for Spree 3-1 with direct deployment on Heroku:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-events-tracker-3-1)
+
 Installation
 ------------
 
