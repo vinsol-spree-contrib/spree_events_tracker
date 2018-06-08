@@ -1,9 +1,8 @@
 module Spree
   class ArchivedPageEvent < Spree::Base
-    ACTIVITIES = { view: :view, search: :search, filter: :filter, index: :index }
 
-    with_options polymorphic: true, optional: true do
-      belongs_to :actor
+    with_options polymorphic: true do
+      belongs_to :actor, optional: true
       belongs_to :target
     end
 

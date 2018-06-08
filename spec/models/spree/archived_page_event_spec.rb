@@ -7,10 +7,4 @@ describe Spree::ArchivedPageEvent do
     it { is_expected.to belong_to(:target) }
   end
 
-  describe 'constant' do
-    it 'is expected to define ACTIVITIES' do
-      expect(described_class::ACTIVITIES).to eq({ view: :view, search: :search, filter: :filter, index: :index })
-    end
-  end
-
 end

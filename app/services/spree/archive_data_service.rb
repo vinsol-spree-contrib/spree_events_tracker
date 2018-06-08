@@ -3,29 +3,26 @@ require 'logger'
 module Spree
   class ArchiveDataService
 
-    def initialize
-      @events = [Spree::CartEvent, Spree::CheckoutEvent, Spree::PageEvent]
-    end
-
     def perform
-      @events.each do |event|
-        archive_data(event, get_archived_event(event))
-      end
-    end
-
-    def get_archived_event(event)
-      "Spree::Archived#{event.to_s.demodulize}".constantize
+      archive_data(Spree::CartEvent, Spree::ArchivedCartEvent)
+      archive_data(Spree::CheckoutEvent, Spree::ArchivedCheckoutEvent)
+      archive_data(Spree::PageEvent, Spree::ArchivedPageEvent)
     end
 
     def archive_data(event, archived_event)
-      event.where("created_at < ?", 1.minute.ago).find_each do |record|
+      event.find_each do |record|
         archived_record = archived_event.new(record.attributes)
-        if archived_record.save
-          Rails.logger.info "#{event} #{record.id} archived"
-          record.delete
-        else
-          Rails.logger.info "#{event} #{record.id} could not be archived"
+
+        ActiveRecord::Base.transaction do
+          if archived_record.save
+            record.delete
+            Rails.logger.info "#{event} #{record.id} archived"
+          else
+            Rails.logger.info "#{event} #{record.id} could not be archived"
+            Rails.logger.info "#{archived_record.errors.full_messages}"
+          end
         end
+
       end
     end
 

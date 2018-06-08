@@ -1,8 +1,8 @@
 module Spree
   class CartEvent < Spree::Base
 
-    with_options polymorphic: true, optional: true do
-      belongs_to :actor
+    with_options polymorphic: true do
+      belongs_to :actor, optional: true
       belongs_to :target
     end
 
