@@ -6,5 +6,7 @@ module Spree
       belongs_to :target
     end
 
+    scope :viewed, -> { where(activity: :view) }
+    scope :product, -> { where(target_type: 'Spree::Product') }
   end
 end

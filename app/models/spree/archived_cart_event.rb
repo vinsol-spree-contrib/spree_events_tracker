@@ -9,5 +9,8 @@ module Spree
     belongs_to :variant
     has_one :product, through: :variant
 
+    scope :added,   -> { where(activity: 'add')    }
+    scope :removed, -> { where(activity: 'remove') }
+    scope :updated, -> { where(activity: 'update') }
   end
 end

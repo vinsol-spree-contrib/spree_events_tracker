@@ -4,6 +4,12 @@ RSpec.describe Spree::ArchiveDataService, type: :service do
 
   let(:service) { Spree::ArchiveDataService.new }
 
+  describe '#initialize' do
+    it 'is expected to initialize @archival_logger to logger instance' do
+      expect(service.instance_variable_get(:@archival_logger).class).to eq(Logger)
+    end
+  end
+
   describe '#perform' do
     before do
       allow(service).to receive(:archive_data).with(Spree::CartEvent, Spree::ArchivedCartEvent)
@@ -37,26 +43,26 @@ RSpec.describe Spree::ArchiveDataService, type: :service do
     end
 
     it 'is expected to call save on archived_record' do
-      expect(archived_record).to receive(:save)
+      expect(archived_record).to receive(:save!)
     end
 
     context 'when record is archived' do
       before do
-        allow(archived_record).to receive(:save).and_return(true)
+        allow(archived_record).to receive(:save!).and_return(true)
       end
 
-      it 'is expected to delete record' do
-        expect_any_instance_of(Spree::PageEvent).to receive(:delete)
+      it 'is expected to destroy the record' do
+        expect_any_instance_of(Spree::PageEvent).to receive(:destroy!)
       end
     end
 
     context 'when record is not archived' do
       before do
-        allow(archived_record).to receive(:save).and_return(false)
+        allow(archived_record).to receive(:save!).and_raise(ActiveRecord::RecordNotSaved)
       end
 
-      it 'is not expected to delete record' do
-        expect_any_instance_of(Spree::PageEvent).not_to receive(:delete)
+      it 'is not expected to destroy the record' do
+        expect_any_instance_of(Spree::PageEvent).not_to receive(:destroy!)
       end
     end
 
