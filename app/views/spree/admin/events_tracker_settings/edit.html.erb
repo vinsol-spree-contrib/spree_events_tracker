@@ -1,19 +1,23 @@
-<% content_for :page_title do %>
-  <%= Spree.t(:events_tracker_settings) %>
-<% end %>
-
 <%= form_tag admin_events_tracker_setting_path, method: :patch do %>
-  <div id="preferences" data-hook>
-    <fieldset class="general no-border-top">
-      <div class="row">
-        <div class="col-xs-12 col-md-6">
-          <div class="form-group" data-hook="admin_events_tracker_archive_data">
-            <%= label_tag :events_tracker_archive_data, Spree.t(:events_tracker_archive_data), class: 'h3' %>
-            <%= check_box_tag :events_tracker_archive_data, true, Spree::Config.events_tracker_archive_data, { class: 'form-control' } %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h1 class="panel-title">
+            <%= Spree.t(:events_tracker_settings) %>
+          </h1>
+        </div>
+
+        <div class="panel-body">
+          <div class="form-group">
+            <%= label_tag :events_tracker_archive_data do %>
+              <%= check_box_tag :events_tracker_archive_data, true, Spree::Config.events_tracker_archive_data %>
+              <%= Spree.t(:events_tracker_archive_data) %>
+            <% end %>
           </div>
         </div>
       </div>
-    </fieldset>
+    </div>
   </div>
 
   <div class="form-actions" data-hook="buttons">
