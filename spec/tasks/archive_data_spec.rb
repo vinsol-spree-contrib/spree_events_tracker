@@ -1,9 +1,8 @@
 require 'spec_helper'
+Rails.application.load_tasks
 
 describe 'rake spree_events_tracker:archive_data', type: :task do
-  it "preloads the Rails environment" do
-    expect(task.prerequisites).to include "environment"
-  end
+  subject(:task) { Rake::Task['spree_events_tracker:archive_data'] }
 
   context 'when archival data preference is true' do
     before do
