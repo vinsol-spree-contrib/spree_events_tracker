@@ -39,27 +39,88 @@ RSpec.describe Spree::ArchiveDataService, type: :service do
   end
 
   describe '#archive_cart_events_data' do
+    let(:order) { create(:completed_order_with_totals) }
+    let(:line_item) { order.line_items.first }
+    let(:variant) { line_item.variant }
+
+    let!(:cart_event_1) { Spree::CartEvent.create(actor: order, target: line_item, activity: 'add', quantity: line_item.quantity, total: order.total, variant: variant) }
+    let!(:cart_event_2) { Spree::CartEvent.create(actor: order, target: line_item, activity: 'remove', quantity: line_item.quantity, total: order.total, variant: variant) }
+
     it 'is expected to call archive_data' do
       expect(service).to receive(:archive_data).with(Spree::CartEvent, Spree::ArchivedCartEvent)
+      service.archive_cart_events_data
     end
 
-    after { service.archive_cart_events_data }
+    context 'archive cart events' do
+      it 'is expected to create archived cart event records' do
+        expect { service.archive_cart_events_data }.to change { Spree::ArchivedCartEvent.count }.from(0).to(2)
+      end
+
+      it 'is expected to create archived records with data same as those of original records' do
+        service.archive_cart_events_data
+        expect(cart_event_1.attributes.except(:id)).to eq(Spree::ArchivedCartEvent.first.attributes.except(:id))
+      end
+
+      it 'is expected to delete cart event records' do
+        expect { service.archive_cart_events_data }.to change { Spree::CartEvent.count }.from(2).to(0)
+      end
+    end
   end
 
   describe '#archive_checkout_events_data' do
+    let(:user) { create(:user) }
+    let(:order) { create(:completed_order_with_totals) }
+
+    let!(:checkout_event_1) { Spree::CheckoutEvent.create(actor: user, target: order, activity: 'initialize_order', previous_state: "cart", next_state: "address", session_id: "wferfegre") }
+    let!(:checkout_event_2) { Spree::CheckoutEvent.create(actor: user, target: order, activity: 'change_order_state', previous_state: "address", next_state: "delivery", session_id: "wferfegre") }
+
     it 'is expected to call archive_data' do
       expect(service).to receive(:archive_data).with(Spree::CheckoutEvent, Spree::ArchivedCheckoutEvent)
+      service.archive_checkout_events_data
     end
 
-    after { service.archive_checkout_events_data }
+    context 'archive checkout events' do
+      it 'is expected to create archived checkout event records' do
+        expect { service.archive_checkout_events_data }.to change { Spree::ArchivedCheckoutEvent.count }.from(0).to(2)
+      end
+
+      it 'is expected to create archived records with data same as those of original records' do
+        service.archive_checkout_events_data
+        expect(checkout_event_1.attributes.except(:id)).to eq(Spree::ArchivedCheckoutEvent.first.attributes.except(:id))
+      end
+
+      it 'is expected to delete checkout event records' do
+        expect { service.archive_checkout_events_data }.to change { Spree::CheckoutEvent.count }.from(2).to(0)
+      end
+    end
   end
 
   describe '#archive_page_events_data' do
+    let(:user) { create(:user) }
+    let(:product) { create(:product) }
+
+    let!(:page_event_1) { Spree::PageEvent.create(actor: user, activity: 'index', session_id: "wferfegre") }
+    let!(:page_event_2) { Spree::PageEvent.create(actor: user, target: product, activity: 'show', session_id: "wferfegre") }
+
     it 'is expected to call archive_data' do
       expect(service).to receive(:archive_data).with(Spree::PageEvent, Spree::ArchivedPageEvent)
+      service.archive_page_events_data
     end
 
-    after { service.archive_page_events_data }
+    context 'archive page events' do
+      it 'is expected to create archived page event records' do
+        expect { service.archive_page_events_data }.to change { Spree::ArchivedPageEvent.count }.from(0).to(2)
+      end
+
+      it 'is expected to create archived records with data same as those of original records' do
+        service.archive_page_events_data
+        expect(page_event_1.attributes.except(:id)).to eq(Spree::ArchivedPageEvent.first.attributes.except(:id))
+      end
+
+      it 'is expected to delete cart event records' do
+        expect { service.archive_page_events_data }.to change { Spree::PageEvent.count }.from(2).to(0)
+      end
+    end
   end
 
   describe '#archive_data' do
