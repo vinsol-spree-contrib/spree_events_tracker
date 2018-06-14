@@ -7,19 +7,44 @@ Spree Events Tracker is a spree extension used to track various user activities.
   3. Product added/removed/updated to cart
   4. Checkout flow during completion of an order
 
+Data Archival Functionality
+---------------------------
+
+Event tracking can quickly fill up tables, and querying them can downgrade performance.
+
+You need to run a rake task to enable data archiving.
+
+```ruby
+bundle exec rake spree_events_tracker:set_archival_choice
+```
+
+> Note: This can be done only once. You can not stop data archival after starting it.
+
+You need to run a rake task to archive data.
+
+```ruby
+bundle exec rake spree_events_tracker:archive_data
+```
+
+You can run this rake task inside a cron job to periodically archive data.
+
+```ruby
+  Using whenever gem
+  -------------------
+
+  every 1.hour do
+    rake 'spree_events_tracker:archive_data'
+  end
+```
+
+> Note: Since the data is archived periodically, it may lag behind the live data.
+
 Demo
 ----
-Try Spree Events Tracker for Spree master with direct deployment on Heroku:
+Try Spree Events Tracker with archival Functionality for Spree master with direct deployment on Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-events-tracker-master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-events-tracker-data-archival)
 
-Try Spree Events Tracker for Spree 3-4 with direct deployment on Heroku:
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-events-tracker-3-4)
-
-Try Spree Events Tracker for Spree 3-1 with direct deployment on Heroku:
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/vinsol-spree-contrib/spree-demo-heroku/tree/spree-events-tracker-3-1)
 
 Installation
 ------------
