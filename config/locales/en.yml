@@ -1,0 +1,5 @@
+en:
+  spree:
+    events_tracker: Events Tracker
+    events_tracker_archive_data: Archive Data 
+    events_tracker_settings: Events Tracker Settings
