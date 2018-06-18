@@ -9,16 +9,20 @@ Spree Events Tracker is a spree extension used to track various user activities.
 
 Data Archival Functionality
 ---------------------------
+Activity tracking continuously updates the data.  
 
-Event tracking can quickly fill up tables, and querying them can downgrade performance.
+Generating reports from the continuously updated data can severely downgrade the performance.    
 
+So, we periodically archive the data, and generate reports from the archived data, thereby, improving the overall performance.  
+
+For archiving the data, we copy the data from primary tables to secondary tables, and delete the record from primary tables.
+
+We have disabled the functionality of data archiving initially.  
 You need to run a rake task to enable data archiving.
 
 ```ruby
 bundle exec rake spree_events_tracker:set_archival_choice
 ```
-
-> Note: This can be done only once. You can not stop data archival after starting it.
 
 You need to run a rake task to archive data.
 
@@ -29,15 +33,23 @@ bundle exec rake spree_events_tracker:archive_data
 You can run this rake task inside a cron job to periodically archive data.
 
 ```ruby
-  Using whenever gem
-  -------------------
+Using whenever gem
+-------------------
 
-  every 1.hour do
-    rake 'spree_events_tracker:archive_data'
-  end
+every 1.hour do
+  rake 'spree_events_tracker:archive_data'
+end
 ```
 
-> Note: Since the data is archived periodically, it may lag behind the live data.
+> Since the data is archived periodically, it may lag behind the live data.
+
+Note
+------
+It is advised not to stop archiving once you start archiving the data.   
+
+If you stop archiving the data, it will create erroneous reports, since the data is partially archived, and you will be creating reports based on live data.  
+
+If you need to stop archiving, please de - archive ( move data from secondary tables to primary tables ) to generate correct reports.   
 
 Demo
 ----
