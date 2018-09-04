@@ -7,7 +7,7 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../dummy/config/environment',  __FILE__)
 
 require 'rspec/rails'
-require 'factory_girl'
+require 'factory_bot'
 require 'ffaker'
 require 'rspec/active_model/mocks'
 require 'shoulda/matchers'
@@ -17,13 +17,10 @@ require 'spree/testing_support/capybara_ext'
 require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
-require 'spree_events_tracker/factories'
 
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
-
   config.infer_spec_type_from_file_location!
   config.raise_errors_for_deprecations!
   config.use_transactional_fixtures = false

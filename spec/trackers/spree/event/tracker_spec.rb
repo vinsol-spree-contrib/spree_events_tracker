@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Spree::Event::Tracker do
 
-  let(:actor) { create(:user) }
-  let(:target) { create(:order) }
+  let(:actor) { FactoryBot.create(:user) }
+  let(:target) { FactoryBot.create(:order) }
   let(:tracker) { Spree::Event::Tracker.new(
                                               activity: 'test_activity',
                                               actor: actor,
